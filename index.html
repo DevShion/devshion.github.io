@@ -34,7 +34,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            /* 改良: 内容が上部に切れないように */
+            padding: 4rem 1rem;
+            /* 改良: 上下に十分な余白を確保 */
         }
 
         /* Animated Background */
@@ -117,7 +120,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto;
+            margin: 20px auto;
+            /* 改良: 回転によるはみ出し防止 */
             position: relative;
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
             animation: breathe 4s ease-in-out infinite;
@@ -305,7 +309,7 @@
                     </svg>
                 </div>
                 <h3>oScan</h3>
-                <p>ただのドキュメントスキャナーだよ。シンプルで使いやすい、あなたのためのツール。</p>
+                <p>無駄を削ぎ落とした、ドキュメントスキャンのための究極にシンプルな道具。</p>
                 <div class="badge">Active Service</div>
             </a>
 
@@ -318,7 +322,7 @@
                     </svg>
                 </div>
                 <h3>Coming Soon</h3>
-                <p>次のプロジェクトを準備中。新しい体験をお楽しみに。</p>
+                <p>新しい「道具」を準備中。次の体験をお楽しみに。</p>
                 <div class="badge" style="background: rgba(255,255,255,0.05); color: #475569;">In Pipeline</div>
             </div>
         </div>
