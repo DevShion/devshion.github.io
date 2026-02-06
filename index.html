@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,22 +16,26 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
             text-align: center;
             border: 1px solid #30363d;
             padding: 2rem;
             border-radius: 8px;
             background-color: #161b22;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
+
         h1 {
             color: #58a6ff;
             margin-bottom: 1rem;
         }
+
         p {
             font-size: 1.1rem;
             line-height: 1.6;
         }
+
         .status {
             display: inline-block;
             margin-top: 20px;
@@ -43,12 +48,20 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>GitHub Pages Live!</h1>
         <p>リポジトリからの配信に成功しました。</p>
         <p>ここから Bun とか Rust とかのプロジェクトに繋げていくの楽しみだね。</p>
         <div class="status">Successfully Deployed</div>
+        <div style="margin-top: 30px; border-top: 1px solid #30363d; padding-top: 1rem;">
+            <p style="font-size: 0.9rem;">Legal Documents for oScan:</p>
+            <a href="oscan/terms.html" style="color: #58a6ff; text-decoration: none; margin: 0 10px;">利用規約</a> |
+            <a href="oscan/privacy.html" style="color: #58a6ff; text-decoration: none; margin: 0 10px;">Privacy
+                Policy</a>
+        </div>
     </div>
 </body>
+
 </html>
