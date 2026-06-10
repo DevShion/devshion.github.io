@@ -1,0 +1,347 @@
+/* ============================================
+   SHION INDUSTRIES — Common Document Stylesheet
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #020408;
+    --bg-2: #060d16;
+    --surface: rgba(255,255,255,0.03);
+    --surface-2: rgba(255,255,255,0.05);
+    --border: rgba(255,255,255,0.07);
+    --border-accent: rgba(0,255,180,0.3);
+    --neon: #00ffb4;
+    --neon-dim: rgba(0,255,180,0.12);
+    --neon-glow: rgba(0,255,180,0.25);
+    --cyan: #00d4ff;
+    --text: #edf2f7;
+    --text-muted: #4a5568;
+    --text-dim: #718096;
+    --font: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Space Mono', ui-monospace, monospace;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ============================================
+   BACKGROUND MESH
+============================================ */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        linear-gradient(rgba(0,255,180,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,180,0.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 20%, transparent 80%);
+    pointer-events: none;
+}
+
+/* ============================================
+   LAYOUT WRAPPER
+============================================ */
+.doc-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5rem;
+}
+
+/* Wide variant for 2-column layout */
+.doc-wrapper.wide {
+    max-width: 1200px;
+}
+
+/* ============================================
+   DOCUMENT HEADER
+============================================ */
+.doc-header {
+    text-align: center;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.doc-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    background: var(--neon);
+    box-shadow: 0 0 10px var(--neon);
+}
+
+.doc-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--neon);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, #a0aec0 50%, var(--neon) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.doc-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   DOCUMENT BODY
+============================================ */
+
+/* Back link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--neon);
+}
+
+/* Glass card container */
+.container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 3rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 0 80px rgba(0,0,0,0.5);
+}
+
+/* Standard h1 inside container (doc title) */
+.container > h1:first-child,
+.doc-header h1 {
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--neon);
+    box-shadow: -4px 0 12px rgba(0,255,180,0.15);
+    letter-spacing: -0.01em;
+}
+
+/* Article number style (for h2 inside columns) */
+.document-h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+    color: var(--text);
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--neon);
+    letter-spacing: -0.01em;
+}
+
+p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+    line-height: 1.85;
+}
+
+ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+li {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+a {
+    color: var(--neon);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+a:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}
+
+code {
+    font-family: var(--mono);
+    font-size: 80%;
+    background: rgba(0,255,180,0.08);
+    border: 1px solid rgba(0,255,180,0.15);
+    color: var(--neon);
+    padding: 0.15em 0.5em;
+    border-radius: 6px;
+}
+
+/* ============================================
+   MULTI-COLUMN (GTcrx etc.)
+============================================ */
+.columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.column-title {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: var(--mono);
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ============================================
+   INFO CARD
+============================================ */
+.info-card {
+    background: rgba(0,255,180,0.04);
+    border: 1px solid rgba(0,255,180,0.15);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-card h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--neon);
+    margin-bottom: 0.75rem;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+}
+
+.info-card p {
+    margin-bottom: 0.5rem;
+    font-size: 0.88rem;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.footer {
+    margin-top: 4rem;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer p {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.footer a {
+    color: var(--text-muted);
+    margin: 0 0.75rem;
+    font-size: 0.78rem;
+    transition: color 0.2s;
+}
+
+.footer a:hover {
+    color: var(--neon);
+    text-decoration: none;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 720px) {
+    .doc-wrapper {
+        padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .container {
+        padding: 1.75rem 1.25rem;
+        border-radius: 18px;
+    }
+
+    .columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .doc-wrapper {
+        padding: 2rem 1rem 3rem;
+    }
+
+    .container {
+        padding: 1.5rem 1rem;
+    }
+}
