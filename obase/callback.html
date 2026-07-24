@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oBASE 連携 - SHION INDUSTRIES</title>
+    <link rel="stylesheet" href="../common.css">
+    <style>
+        .callback-card {
+            background-color: var(--surface-2);
+            border: 1px solid var(--border-accent);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 180, 0.05);
+            margin-top: 2rem;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid var(--neon-dim);
+            border-top: 3px solid var(--neon);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 15px var(--neon-glow);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .action-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--neon);
+            color: var(--bg);
+            font-weight: 600;
+            font-family: var(--font);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 15px var(--neon-glow);
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--neon);
+        }
+
+        .status-text {
+            color: var(--text);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-text {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="doc-wrapper">
+        <a href="../index.html" class="back-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Home
+        </a>
+
+        <div class="doc-header">
+            <p class="doc-eyebrow">// oBASE Authentication</p>
+            <h1>oBASE 連携手続き</h1>
+        </div>
+
+        <div class="container">
+            <div class="callback-card">
+                <div class="spinner"></div>
+                <p class="status-text">oBASE アプリへ移動しています...</p>
+                <p class="sub-text">自動的にアプリが起動しない場合は、下のボタンをタップしてください。</p>
+                <a id="manual-link" href="#" class="action-button">oBASE アプリを開く</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const searchParams = window.location.search;
+            const targetUrl = 'industries-shion-obase://oauth-redirect' + searchParams;
+
+            const manualLink = document.getElementById('manual-link');
+            if (manualLink) {
+                manualLink.href = targetUrl;
+            }
+
+            // 即座にアプリへ自動リダイレクト
+            window.location.href = targetUrl;
+        })();
+    </script>
+</body>
+
+</html>
